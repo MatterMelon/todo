@@ -1,0 +1,30 @@
+.App{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+
+    background-color: #ebebeb;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 400px;
+}
+
+.task-exit {
+    opacity: 1;
+    /* transform: translateX(0); */
+}
+
+.task-exit-active {
+    opacity: 0;
+    /* transform: translateX(-100); */
+    transition: opacity 5000ms;
+}
+
+.task-exit-done {
+    opacity: 0;
+}

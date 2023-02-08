@@ -1,0 +1,54 @@
+.taskCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 20px;
+    margin: 10px 0;
+
+    border-radius: 2rem;
+
+    color: #29252c;
+    background-color: white;
+
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    cursor: pointer;
+}
+/* 
+.taskCard:hover{
+    background-color: aliceblue;
+} */
+
+.taskCardCheckbox{
+    margin-right: 20px;
+}
+
+.taskCardTitle{
+    width: 100%;
+}
+
+.deleteButton{
+    width: 40px;
+    height: 100%;
+
+    padding: 0 10px;
+
+    font-size: 32px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+
+    background: none;
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.taskCompleted{
+    background-color: #61c382;
+}

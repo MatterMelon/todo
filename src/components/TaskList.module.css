@@ -1,0 +1,17 @@
+.taskList{
+    width: 100%;
+}
+
+.task-exit {
+    opacity: 1;
+    background-color: black;
+}
+
+.task-exit-active {
+    opacity: 0;
+    transition: opacity 5000ms;
+}
+
+.task-exit-done {
+    opacity: 0;
+}
