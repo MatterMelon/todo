@@ -1,36 +1,41 @@
-import { useState } from 'react';
-import './App.css';
-import TaskCard from './components/TaskCard';
-import InputText from './UI/Input/InputText';
-import Button from './UI/button/Button';
-import TaskList from './components/TaskList';
+import { useState } from "react";
+import "./App.css";
+import InputText from "./components/Input/InputText";
+import Button from "./components/button/Button";
+import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
 
-  const [tasks, setTasks] = useState([])
-  const [newTaskTitle, setNewTaskTitle] = useState('')
+  const addTask = (newTaskTitle) => {
+    let newTask = { id: Date.now(), title: newTaskTitle, isCompleted: false };
+    setTasks([newTask, ...tasks]);
+  };
 
-  const addTask = () => {
-    let newTask = {id: Date.now, title: newTaskTitle, isCompleted: false}
-    setTasks([...tasks, newTask])
-  }
+  const togleTaskStatus = (taskId) => {
+    let tasksForUpdate = tasks;
+    tasksForUpdate.forEach((task, i) => {
+      if (task.id === taskId) {
+        tasksForUpdate[i].isCompleted = !tasksForUpdate[i].isCompleted;
+        setTasks([...tasksForUpdate]);
+      }
+    });
+  };
 
-  const deleteTask = (taskToDelete) => {
-    setTasks(tasks.filter(task => task != taskToDelete))
-  }
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
 
   return (
     <div className="App">
-      <div className='container'>
-        <div style={{display: 'flex', width: '100%'}}>
-          <InputText 
-            placeholder='Type in your task' 
-            value={newTaskTitle}
-            onChange={e => setNewTaskTitle(e.target.value)}
-          />
-          <Button onClick={addTask}>+</Button>
-        </div>
-        <TaskList tasks={tasks} deleteTask={deleteTask}/>
+      <div className="container">
+        <TaskForm addTask={addTask} />
+        <TaskList
+          tasks={tasks}
+          deleteTask={deleteTask}
+          togleTaskStatus={togleTaskStatus}
+        />
       </div>
     </div>
   );
