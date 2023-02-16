@@ -1,12 +1,13 @@
 import InputText from "./Input/InputText";
 import Button from "./button/Button";
 import { useState } from "react";
+import style from "./TaskForm.module.css";
 
 const TaskForm = ({ addTask }) => {
   const [newTaskTitle, setNewTaskTitle] = useState("");
 
   return (
-    <div className="taskForm">
+    <div className={style.taskForm}>
       <InputText
         placeholder="Type in your task"
         value={newTaskTitle}
